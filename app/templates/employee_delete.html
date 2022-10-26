@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="form-group">
+      <form method="POST">
+          {{ form.csrf_token }}
+          <p>Are sure you want to delete {{ employee.name }} № {{ employee.id }}</p>
+          <input type="submit" value="Delete" class="btn btn-danger"/>
+      </form>
+    </div>
+
+{% endblock %}

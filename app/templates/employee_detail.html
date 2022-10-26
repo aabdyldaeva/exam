@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ employee.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Birth date: {{ employee.birth_date }} </h6>
+            <h6 class="card-subtitle mb-2 text-muted">Wage: {{ employee.position.wage }} soms</h6>
+            <p class="card-text">Position: {{ employee.position.name }} {{ employee.position.department }}</p>
+            <a href="{{ url_for('employee_update', employee_id=employee.id) }}" class="card-link">Update</a>
+            <a href="{{ url_for('employee_delete', employee_id=employee.id) }}" class="card-link">Delete</a>
+          </div>
+        </div>
+    </div>
+{% endblock %}

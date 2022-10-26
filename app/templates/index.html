@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 class="mb-5 text-center">List of Employees</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Department</th>
+          <th scope="col">Position</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date of birth</th>
+          <th scope="col">Wage</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+        <tr>
+          <th scope="row">{{ employee.id }}</th>
+          <td>{{ employee.position.department }}</td>
+          <td>{{ employee.position.name }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.birth_date }}</td>
+          <td>{{ employee.position.wage }}</td>
+          <td><a class="btn btn-warning" href="{{ url_for('employee_detail', employee_id=employee.id) }}"> Details</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
